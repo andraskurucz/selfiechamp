@@ -1,0 +1,11 @@
+<resources>
+
+        <style name="AppCompatTheme" parent="Theme.AppCompat" >
+            <!-- customize here -->
+        </style>
+
+        <style name="MaterialTheme" parent="android:Theme.Material.Light.NoActionBar.Fullscreen" >
+        <!-- customize here -->
+        </style>
+
+</resources>
