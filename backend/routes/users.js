@@ -1,9 +1,27 @@
 var express = require('express');
-var router = express.Router();
+var db = require('../db');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+function list (req, res, next) {
+    res.send(db.users);
+}
 
-module.exports = router;
+function show (req, res, next) {
+    res.send(db.get(re.param.name_id));
+}
+
+function update (req, res, next) {
+    var result = db.set(req.body.user);
+    res.send(result);
+}
+
+function create (req, res, next) {
+    var result = db.set(req.body.user);
+    res.send(result);
+}
+
+module.exports = {
+    list: list,
+    show: show,
+    update: update,
+    create: create
+};
