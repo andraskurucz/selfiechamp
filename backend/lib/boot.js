@@ -8,6 +8,7 @@ var fs = require('fs');
 module.exports = function(parent, options){
     var verbose = options.verbose;
     fs.readdirSync(__dirname + '/../routes').forEach(function(name){
+        name = name.split('.')[0];
         verbose && console.log('\n   %s:', name);
         var obj = require('./../routes/' + name);
         var name = obj.name || name;
@@ -30,7 +31,7 @@ module.exports = function(parent, options){
                     break;
                 case 'list':
                     method = 'get';
-                    path = '/' + name + 's';
+                    path = '/' + name + '/list';
                     break;
                 case 'edit':
                     method = 'get';

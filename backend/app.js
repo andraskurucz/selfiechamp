@@ -31,10 +31,10 @@ app.use(session({
 
 app.use(methodOverride('_method'));
 
-app.use(function(req, res, next) {
-   var msgs = req.session.messages || [];
+app.use(function (req, res, next) {
+    var msgs = req.session.messages || [];
 
-    res.locals.messages = msg;
+    res.locals.messages = msgs;
 
     res.locals.hasMessage = !!msgs.lenght;
     next();
@@ -76,4 +76,7 @@ app.use(function (err, req, res, next) {
 });
 
 
-module.exports = app;
+if (!module.parent) {
+    app.listen(9000);
+    console.log('Express started on port 9000');
+}
