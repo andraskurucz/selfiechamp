@@ -43,7 +43,7 @@ module.exports = function(parent, options){
                     break;
                 case 'create':
                     method = 'post';
-                    path = '/' + name;
+                    path = '/' + name + '/create';
                     break;
                 case 'index':
                     method = 'get';

@@ -35,7 +35,7 @@ users.push({
     email: 'kresshy+2@gmail.com'
 });
 
-function get (id) {
+function getUser (id) {
 
     var user = {};
 
@@ -48,7 +48,7 @@ function get (id) {
     return user;
 }
 
-function set (userData) {
+function setUser (userData) {
     if (userData.id) return "missing id";
     if (userData.name) return "missing name";
     if (userData.foreName) return "missing foreName";
@@ -72,6 +72,6 @@ function set (userData) {
 
 module.exports = {
     users: users,
-    get: get,
-    set: set
+    getUser: getUser,
+    setUser: setUser
 }
