@@ -2,23 +2,23 @@ package com.poleposition.selfiechamp;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class FeedFragment extends Fragment {
 
-    private static final String KEY_TITLE = "title";
-    private static final String KEY_INDICATOR_COLOR = "indicator_color";
-    private static final String KEY_DIVIDER_COLOR = "divider_color";
+    private RecyclerView mRecyclerView;
+    private FeedAdapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
 
-    public static FeedFragment newInstance(CharSequence title, int indicatorColor,
-                                              int dividerColor) {
+    public static FeedFragment newInstance(CharSequence title, int indicatorColor, int dividerColor) {
         Bundle bundle = new Bundle();
-        bundle.putCharSequence(KEY_TITLE, title);
-        bundle.putInt(KEY_INDICATOR_COLOR, indicatorColor);
-        bundle.putInt(KEY_DIVIDER_COLOR, dividerColor);
 
         FeedFragment fragment = new FeedFragment();
         fragment.setArguments(bundle);
@@ -38,19 +38,18 @@ public class FeedFragment extends Fragment {
 
         Bundle args = getArguments();
 
-        if (args != null) {
-            TextView title = (TextView) view.findViewById(R.id.item_title);
-            title.setText("Title: " + args.getCharSequence(KEY_TITLE));
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        mRecyclerView.setHasFixedSize(true);
 
-            int indicatorColor = args.getInt(KEY_INDICATOR_COLOR);
-            TextView indicatorColorView = (TextView) view.findViewById(R.id.item_indicator_color);
-            indicatorColorView.setText("Indicator: #" + Integer.toHexString(indicatorColor));
-            indicatorColorView.setTextColor(indicatorColor);
+        mLayoutManager = new LinearLayoutManager(getActivity());
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
-            int dividerColor = args.getInt(KEY_DIVIDER_COLOR);
-            TextView dividerColorView = (TextView) view.findViewById(R.id.item_divider_color);
-            dividerColorView.setText("Divider: #" + Integer.toHexString(dividerColor));
-            dividerColorView.setTextColor(dividerColor);
-        }
+        ArrayList<String> feedList = new ArrayList<String>();
+        feedList.add("hello 0");
+        feedList.add("hello 1");
+        feedList.add("hello 2");
+        feedList.add("hello 3");
+        mAdapter = new FeedAdapter(feedList);
+        mRecyclerView.setAdapter(mAdapter);
     }
 }
