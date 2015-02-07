@@ -124,6 +124,16 @@ function setUser (userData) {
     return "successfully inserted";
 }
 
+function listUsers() {
+    var result = [];
+
+    users.forEach(function(item, index) {
+        result.push(item.getUserData());
+    })
+
+    return result;
+}
+
 function getFeed (id) {
     var feed = {};
 
@@ -136,6 +146,16 @@ function getFeed (id) {
     return feed;
 }
 
+function listFeed() {
+    var result = [];
+
+    feeds.forEach(function(item, index) {
+       result.push(item.getFeedData());
+    });
+
+    return result;
+}
+
 function getProfile() {
     return profile;
 }
@@ -145,11 +165,11 @@ function getAuthToken() {
 }
 
 module.exports = {
-    users: users,
+    users: listUsers,
     getUser: getUser,
     setUser: setUser,
 
-    feeds: feeds,
+    feeds: listFeed,
     getFeed: getFeed,
 
     getProfile: getProfile,

@@ -3,7 +3,7 @@
  */
 var db = require('../db');
 
-function login(req, res, next) {
+function login (req, res, next) {
     var profile = db.getProfile();
 
     if (req.body.email === profile.getEmail() && req.body.password === profile.getPassword()) {

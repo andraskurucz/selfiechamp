@@ -2,7 +2,7 @@ var express = require('express');
 var db = require('../db');
 
 function list (req, res, next) {
-    res.send(db.users);
+    res.send(db.users());
 }
 
 function show (req, res, next) {

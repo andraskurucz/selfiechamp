@@ -8,6 +8,10 @@ function Feed(id, userId, image, time, favs) {
     var _time =        time || null;
     var _favs =        favs || null;
 
+    this.setFeedData = setFeedData;
+    this.getFeedData = getFeedData;
+    this.getId = getId;
+
     function setFeedData(id, userId, image, time, favs) {
         _id = id;
         _userId = userId;
