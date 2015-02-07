@@ -54,7 +54,7 @@ feeds.push(new Feed(
 feeds.push(new Feed(
     '2346',
     '1235',
-    '/images/yolo.jpg',
+    '/images/yolo-15.gif',
     '2015-02-03',
     ['1234', '1235']
 ));
@@ -62,7 +62,7 @@ feeds.push(new Feed(
 feeds.push(new Feed(
     '2347',
     '1236',
-    '/images/yolo.jpg',
+    '/images/yolo-final.jpg',
     '2015-02-03',
     ['1234']
 ));

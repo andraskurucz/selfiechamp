@@ -2,32 +2,36 @@
  * Constructor function for the feed object
  */
 function Feed(id, userId, image, time, favs) {
-    this.feed = {
-        _id: id || null,
-        _userId: userId || null,
-        _image: image || null,
-        _time: time || null,
-        _favs: favs || null
-    }
+    this._id =          id || null;
+    this._userId =      userId || null;
+    this._image =       image || null;
+    this._time =        time || null;
+    this._favs =        favs || null;
 
     function setfeedData(id, userId, image, time, favs) {
-        this.feed._id = id;
-        this.feed._userId = userId;
-        this.feed._image = image;
-        this.feed._time = time;
-        this.feed._favs = favs;
+        this._id = id;
+        this._userId = userId;
+        this._image = image;
+        this._time = time;
+        this._favs = favs;
     }
 
     function getfeedData() {
-        return this.feed;
+        return {
+            id: this._id,
+            userId: this._userId,
+            image: this._image,
+            time: this._time,
+            favs: this._favs
+        };
     }
 
     function set(prop, value) {
-        this.feed[prop] = value;
+        this.feed['_' + prop] = value;
     }
 
     function get(prop) {
-        return this.feed[prop];
+        return this.feed['_' + prop];
     }
 }
 
