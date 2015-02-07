@@ -45,6 +45,14 @@ function User(id, name, firstName, lastName, password, age, gender, facebook_id,
     function getId() {
         return _id
     }
+
+    function getEmail() {
+        return _email;
+    }
+
+    function getPassword() {
+        return _password;
+    }
 }
 
 module.exports = User;

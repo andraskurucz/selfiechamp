@@ -17,6 +17,7 @@ var profile = new User(
     'facebook_1234565',
     'szabolcs.va@gmail.com'
 );
+var authToken = "asdasdasdasdasdasd";
 
 users.push(new User(
     '1234',
@@ -139,6 +140,10 @@ function getProfile() {
     return profile;
 }
 
+function getAuthToken() {
+    return authToken;
+}
+
 module.exports = {
     users: users,
     getUser: getUser,
@@ -147,5 +152,7 @@ module.exports = {
     feeds: feeds,
     getFeed: getFeed,
 
-    getProfile: getProfile
+    getProfile: getProfile,
+
+    getAuthToken: getAuthToken
 }

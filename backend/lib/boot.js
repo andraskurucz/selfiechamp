@@ -25,6 +25,14 @@ module.exports = function(parent, options){
             // if (~['name', 'prefix', 'engine', 'before'].indexOf(key)) continue;
             // route exports
             switch (key) {
+                case 'login':
+                    method = 'post';
+                    path = '/login';
+                    break;
+                case 'profile':
+                    method = "get";
+                    path = '/profile';
+                    break;
                 case 'show':
                     method = 'get';
                     path = '/' + name + '/:' + name + '_id';
