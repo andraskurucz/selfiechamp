@@ -26,15 +26,14 @@ function User(id, name, firstName, lastName, password, age, gender, facebook_id,
 
     function getUserData() {
         return {
-            id:             this._id || null,
-            name:           this._name || null,
-            firstName:      this._firstName || null,
-            lastName:       this._lastName || null,
-            password:       this._password || null,
-            age:            this._age || null,
-            gender:         this._gender || null,
-            facebook_id:    this._facebook_id || null,
-            email:          this._email || null
+            id:             this._id,
+            name:           this._name,
+            firstName:      this._firstName,
+            lastName:       this._lastName,
+            age:            this._age,
+            gender:         this._gender,
+            facebook_id:    this._facebook_id,
+            email:          this._email
         };
     }
 
