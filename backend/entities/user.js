@@ -11,7 +11,7 @@ function User(id, name, firstName, lastName, password, age, gender, facebook_id,
     var _gender =          gender || null;
     var _facebook_id =     facebook_id || null;
     var _email =           email || null;
-    var _image =           image || null;
+    var _image =           null;
 
     this.setUserData = setUserData;
     this.getUserData = getUserData;
@@ -38,7 +38,7 @@ function User(id, name, firstName, lastName, password, age, gender, facebook_id,
             gender:         _gender,
             facebook_id:    _facebook_id,
             email:          _email,
-            image:          '/images/no_photo.jpg'
+            image:          _image || '/images/no_photo.jpg'
         };
     }
 

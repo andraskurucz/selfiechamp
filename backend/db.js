@@ -6,6 +6,17 @@ var Feed = require('./entities/feed');
 
 var users = [];
 var feeds = [];
+var profile = new User(
+    '1',
+    'Szabolcs Varadi',
+    'Szabolcs',
+    'Varadi',
+    'test123',
+    '24',
+    'male',
+    'facebook_1234565',
+    'szabolcs.va@gmail.com'
+);
 
 users.push(new User(
     '1234',
@@ -115,13 +126,17 @@ function setUser (userData) {
 function getFeed (id) {
     var feed = {};
 
-    feeds.forEach(function(value, index) {
-        if (value.getId() === id) {
-            feed = value;
+    feeds.forEach(function(item, index) {
+        if (item.getId() === id) {
+            feed = item.getFeedData();
         }
     });
 
     return feed;
+}
+
+function getProfile() {
+    return profile;
 }
 
 module.exports = {
@@ -130,5 +145,7 @@ module.exports = {
     setUser: setUser,
 
     feeds: feeds,
-    getFeed: getFeed
+    getFeed: getFeed,
+
+    getProfile: getProfile
 }
