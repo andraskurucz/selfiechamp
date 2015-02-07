@@ -6,7 +6,6 @@ function list (req, res, next) {
 }
 
 function show (req, res, next) {
-    console.log(req.params.users_id);
     res.send(db.getUser(req.params.users_id));
 }
 

@@ -70,9 +70,9 @@ feeds.push(new Feed(
 function getUser (id) {
     var user = {};
 
-    users.forEach(function(value, index) {
-        if (value.user._id === id) {
-            user = value;
+    users.forEach(function(item, index) {
+        if (item.getId() === id) {
+            user = item.getUserData();
         }
     });
 
@@ -80,21 +80,30 @@ function getUser (id) {
 }
 
 function setUser (userData) {
-    if (userData._id) return "missing id";
-    if (userData._name) return "missing name";
-    if (userData._firstName) return "missing firstName";
-    if (userData._lastName) return "missing lastName";
-    if (userData._password) return "missing password";
-    if (userData._age) return "missing password";
-    if (userData._gender) return "missing password";
-    if (userData._facebook_id) return "missing password";
-    if (userData._email) return "missing email";
+    if (userData.id) return "missing id";
+    if (userData.name) return "missing name";
+    if (userData.firstName) return "missing firstName";
+    if (userData.lastName) return "missing lastName";
+    if (userData.password) return "missing password";
+    if (userData.age) return "missing password";
+    if (userData.gender) return "missing password";
+    if (userData.facebook_id) return "missing password";
+    if (userData.email) return "missing email";
 
     var user = {};
 
-    users.forEach(function(value, index) {
-        if (value.id === userData.id) {
-            user = userData;
+    users.forEach(function(item, index) {
+        if (item.getId() === userData.id) {
+            user = new User(
+                userData.id,
+                userData.name,
+                userData.firstName,
+                userData.lastName,
+                userData.age,
+                userData.gender,
+                userData.facebook_id,
+                userData.email
+            );
             return "successfully updated";
         }
     });
@@ -107,7 +116,7 @@ function getFeed (id) {
     var feed = {};
 
     feeds.forEach(function(value, index) {
-        if (value.feed._id === id) {
+        if (value.getId() === id) {
             feed = value;
         }
     });
