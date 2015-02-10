@@ -1,4 +1,6 @@
-function before (req, res, nex) {
+var db = require('../db');
+
+function before (req, res, next) {
     var token = req.params.token;
 
     if (token && token === db.getAuthToken()) {
