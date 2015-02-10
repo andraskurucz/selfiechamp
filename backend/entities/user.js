@@ -15,6 +15,8 @@ function User(id, name, firstName, lastName, password, age, gender, facebook_id,
 
     this.setUserData = setUserData;
     this.getUserData = getUserData;
+    this.getEmail = getEmail;
+    this.getPassword = getPassword;
     this.getId = getId;
 
     function setUserData(id, name, firstName, lastName, age, gender, facebook_id, email) {
