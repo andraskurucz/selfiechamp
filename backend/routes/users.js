@@ -1,5 +1,6 @@
 var express = require('express');
 var db = require('../db');
+var auth = require('../utils/authentication');
 
 function list (req, res, next) {
     res.send(db.users());
@@ -20,6 +21,7 @@ function create (req, res, next) {
 }
 
 module.exports = {
+    before: auth,
     list: list,
     show: show,
     update: update,

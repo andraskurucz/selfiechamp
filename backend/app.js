@@ -33,12 +33,9 @@ app.use(methodOverride('_method'));
 
 app.use(function (req, res, next) {
     var msgs = req.session.messages || [];
-
     res.locals.messages = msgs;
-
     res.locals.hasMessage = !!msgs.lenght;
     next();
-
     req.session.messages = [];
 });
 

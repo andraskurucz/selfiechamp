@@ -31,27 +31,27 @@ module.exports = function(parent, options){
                     break;
                 case 'profile':
                     method = "get";
-                    path = '/profile';
+                    path = '/profile/:token';
                     break;
                 case 'show':
                     method = 'get';
-                    path = '/' + name + '/:' + name + '_id';
+                    path = '/' + name + '/:' + name + '_id/:token';
                     break;
                 case 'list':
                     method = 'get';
-                    path = '/' + name + '/list';
+                    path = '/' + name + '/list/:token';
                     break;
                 case 'edit':
                     method = 'get';
-                    path = '/' + name + '/:' + name + '_id/edit';
+                    path = '/' + name + '/:' + name + '_id/edit/:token';
                     break;
                 case 'update':
                     method = 'post';
-                    path = '/' + name + '/:' + name + '_id';
+                    path = '/' + name + '/:' + name + '_id/:token';
                     break;
                 case 'create':
                     method = 'post';
-                    path = '/' + name + '/create';
+                    path = '/' + name + '/create/:token';
                     break;
                 case 'index':
                     method = 'get';
