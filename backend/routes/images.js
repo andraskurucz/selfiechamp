@@ -9,7 +9,7 @@ var fs = require('fs');
 function create(req, res, next) {
     for (var i = 0; i < req.files.length; i++) {
         var file = req.files.item(i);
-        fs.writeFileSync('../public/images/' + file.name, file, );
+        fs.writeFileSync('../public/images/' + file.name, file, '');
     }
 
 }
