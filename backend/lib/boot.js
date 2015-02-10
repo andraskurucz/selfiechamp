@@ -22,7 +22,7 @@ module.exports = function(parent, options){
         // on the exported methods
         for (var key in obj) {
             // "reserved" exports
-            // if (~['name', 'prefix', 'engine', 'before'].indexOf(key)) continue;
+            if (~['name', 'prefix', 'engine', 'before'].indexOf(key)) continue;
             // route exports
             switch (key) {
                 case 'login':
