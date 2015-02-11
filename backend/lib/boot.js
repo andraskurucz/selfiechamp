@@ -55,7 +55,7 @@ module.exports = function(parent, options){
                     break;
                 case 'index':
                     method = 'get';
-                    path = '/';
+                    path = '/:token';
                     break;
                 default:
                     /* istanbul ignore next */
