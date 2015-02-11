@@ -6,11 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var methodOverride = require('method-override');
-var multer = require('multer');
-var Busboy = require('connect-busboy');
-
-//var routes = require('./routes/index');
-//var users = require('./routes/users');
 
 var app = express();
 
@@ -21,7 +16,6 @@ app.set('view engine', 'ejs');
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
-app.use(Busboy());
 app.use(bodyParser.json({
     limit: '50mb'
 }));

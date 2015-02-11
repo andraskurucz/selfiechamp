@@ -5,51 +5,34 @@
 var db = require('../db');
 var auth = require('../utils/authentication');
 var fs = require('fs');
-var Busboy = require('connect-busboy');
+var multiparty = require('multiparty');
+var format = require('util').format;
 
 function create(req, res, next) {
 
-    req.busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
-        console.log('File [' + fieldname + ']: filename: ' + filename + ', encoding: ' + encoding + ', mimetype: ' + mimetype);
-        file.on('data', function(data) {
-            console.log('File [' + fieldname + '] got ' + data.length + ' bytes');
-        });
-        file.on('end', function() {
-            console.log('File [' + fieldname + '] Finished');
-        });
+    var form = new multiparty.Form();
+
+    // uploads the file to a temporary location after you can move it...
+    form.on('file', function(name, file) {
+        console.log(file);
+        res.send(file);
     });
 
-    req.busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated) {
-        console.log('Field [' + fieldname + ']: value: ' + inspect(val));
-    });
+    // parse the form
+    form.parse(req)
+}
 
-    req.busboy.on('finish', function() {
-        console.log('Done parsing form!');
-        res.writeHead(303, { Connection: 'close', Location: '/' });
-        res.end();
-    });
-
-    req.pipe(req.busboy);
-
-    /*
-    fs.writeFile(__dirname + '/public/images/' + image.name, function (err) {
-        if (err) {
-            res.status(500);
-            res.send({
-                status: false,
-                message: 'Failed to save the picture'
-            });
-        } else {
-            res.send({
-                status: true,
-                message: 'Image uploaded successfully',
-                path: '/images/' + image.name
-            });
-        }
-    });*/
+function index (req, res, next) {
+    res.send(
+    '<form method=\"post\" enctype=\"multipart/form-data\" action=\"/uploads/create/' + db.getAuthToken() + '\">'
+    + '<p>Title: <input type="text" name="title" /></p>'
+    + '<p>Image: <input type="file" name="image" /></p>'
+    + '<p><input type="submit" value="Upload" /></p>'
+    + '</form>');
 }
 
 module.exports = {
-    create: create
+    create: create,
+    index: index
 }
 
