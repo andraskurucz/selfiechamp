@@ -2,6 +2,8 @@
  * Constructor function for the feed object
  */
 function Feed(id, userId, title, image, time, favs) {
+
+    // private fields
     var _id =          id || null;
     var _userId =      userId || null;
     var _title =       title || null;
@@ -9,18 +11,40 @@ function Feed(id, userId, title, image, time, favs) {
     var _time =        time || new Date();
     var _favs =        favs || [];
 
+    // public functions
+    this.isComplete = isComplete;
+    this.addFav = addFav;
+
+    // setters
     this.setFeedData = setFeedData;
-    this.getFeedData = getFeedData;
-    this.getId = getId;
     this.setId = setId;
     this.setUserId = setUserId;
     this.setTitle = setTitle;
     this.setImage = setImage;
     this.setTime = setTime;
     this.setFavs = setFavs;
-    this.addFav = addFav;
-    this.isComplete = isComplete;
 
+    // getters
+    this.getFeedData = getFeedData;
+    this.getId = getId;
+    this.getUserId = getUserId;
+    this.getTitle = getTitle;
+    this.getImage = getImage;
+    this.getTime = getTime;
+    this.getFavs = getFavs;
+
+    // check that all the fields are set
+    function isComplete() {
+        return _id && _userId && _title && _image && _time && _favs;
+    }
+
+    function addFav(value) {
+        _favs.push(value);
+    }
+
+    /*
+     * Setters and Getters
+     */
     function setFeedData(id, userId, title, image, time, favs) {
         _id = id;
         _userId = userId;
@@ -28,17 +52,6 @@ function Feed(id, userId, title, image, time, favs) {
         _image = image;
         _time = time;
         _favs = favs;
-    }
-
-    function getFeedData() {
-        return {
-            id: _id,
-            userId: _userId,
-            title: _title,
-            image: _image,
-            time: _time,
-            favs: _favs
-        };
     }
 
     function setId(value) {
@@ -65,17 +78,39 @@ function Feed(id, userId, title, image, time, favs) {
         _favs = value;
     }
 
-    function addFav(value) {
-        _favs.push(value);
+    function getFeedData() {
+        return {
+            id: _id,
+            userId: _userId,
+            title: _title,
+            image: _image,
+            time: _time,
+            favs: _favs
+        };
     }
 
     function getId() {
         return _id;
     }
 
-    // check that all the fields are set
-    function isComplete() {
-        return _id && _userId && _title && _image && _time && _favs;
+    function getUserId(value) {
+        return _userId;
+    }
+
+    function getTitle(value) {
+        return title;
+    }
+
+    function getImage(value) {
+        return image;
+    }
+
+    function getTime(value) {
+        return time;
+    }
+
+    function getFavs(value) {
+        return favs;
     }
 }
 

@@ -12,25 +12,25 @@ var Feed = require('../entities/feed');
 function create(req, res, next) {
 
     var form = new multiparty.Form();
-    var newFeeditem = new Feed();
+    var newFeedItem = new Feed();
     var imageStored = false;
 
     form.on('file', function (name, file) {
 
-        newFeeditem.setImage(hashFile(file));
+        newFeedItem.setImage(hashFile(file));
         complete();
     });
 
     form.on('field', function (name, value) {
         switch (name) {
             case 'id':
-                newFeeditem.setId(value);
+                newFeedItem.setId(value);
                 break;
             case 'userId':
-                newFeeditem.setUserId(value);
+                newFeedItem.setUserId(value);
                 break;
             case 'title':
-                newFeeditem.setTitle(value);
+                newFeedItem.setTitle(value);
                 break;
         }
 
@@ -54,7 +54,7 @@ function create(req, res, next) {
                 next(new Error('Problems when uploading image'));
             }
 
-            newFeeditem.setImage(hashString);
+            newFeedItem.setImage(hashString + '.' + file.originalFilename.split('.')[1]);
             moveFile(file.path,'./public/images/', hashString + '.' + file.originalFilename.split('.')[1]);
 
             return hashString + '.' + file.originalFilename.split('.')[1];
@@ -82,8 +82,8 @@ function create(req, res, next) {
 
     function complete() {
 
-        if (newFeeditem.isComplete() && imageStored) {
-            res.send(newFeeditem.getFeedData());
+        if (newFeedItem.isComplete() && imageStored) {
+            res.send(newFeedItem.getFeedData());
         }
     }
 }
