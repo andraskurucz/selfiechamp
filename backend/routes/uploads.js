@@ -82,9 +82,6 @@ function create(req, res, next) {
 
     function complete() {
 
-        console.log("\n\n newFeedItem: \n", newFeeditem.getFeedData());
-        console.log("\n\n imageStored: \n", imageStored);
-
         if (newFeeditem.isComplete() && imageStored) {
             res.send(newFeeditem.getFeedData());
         }
