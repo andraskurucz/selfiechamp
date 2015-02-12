@@ -37,7 +37,7 @@ function create(req, res, next) {
         complete();
     });
 
-    form.parse(req)
+    form.parse(req);
 
     function hashFile(file) {
         var hash = crypto.createHash('sha1');
@@ -46,7 +46,7 @@ function create(req, res, next) {
         var source = fs.createReadStream(file.path);
 
         source.on('end', function () {
-            var hashString = null;
+            var hashString;
             hash.end();
             hashString = hash.read();
 
