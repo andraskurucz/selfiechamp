@@ -58,24 +58,27 @@ users.push(new User(
 feeds.push(new Feed(
     '2345',
     '1234',
+    'This is a title',
     '/images/yolo.jpg',
-    '2015-02-03',
+    new Date(),
     ['1234', '1235', '1236']
 ));
 
 feeds.push(new Feed(
     '2346',
     '1235',
+    'This is a title',
     '/images/yolo-15.gif',
-    '2015-02-03',
+    new Date(),
     ['1234', '1235']
 ));
 
 feeds.push(new Feed(
     '2347',
     '1236',
+    'This is a title',
     '/images/yolo-final.jpg',
-    '2015-02-03',
+    new Date(),
     ['1234']
 ));
 
