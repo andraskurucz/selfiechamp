@@ -54,7 +54,7 @@ function create(req, res, next) {
                 next(new Error('Problems when uploading image'));
             }
 
-            newFeedItem.setImage(hashString + '.' + file.originalFilename.split('.')[1]);
+            newFeedItem.setImage('/images/' + hashString + '.' + file.originalFilename.split('.')[1]);
             moveFile(file.path,'./public/images/', hashString + '.' + file.originalFilename.split('.')[1]);
 
             return hashString + '.' + file.originalFilename.split('.')[1];
@@ -83,6 +83,7 @@ function create(req, res, next) {
     function complete() {
 
         if (newFeedItem.isComplete() && imageStored) {
+            db.addFeedItem(newFeedItem);
             res.send(newFeedItem.getFeedData());
         }
     }

@@ -21,6 +21,7 @@
     "multer": "^0.1.7",
     "multiparty": "^4.1.1",
     "passport": "^0.2.1",
+    "passport-facebook": "^1.0.3",
     "passport-oauth": "^1.0.0",
     "request": "^2.48.0",
     "serve-favicon": "~2.1.3"

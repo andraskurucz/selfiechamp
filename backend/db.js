@@ -149,6 +149,10 @@ function getFeed (id) {
     return feed;
 }
 
+function addFeedItem(item) {
+    feeds.push(item);
+}
+
 function listFeed() {
     var result = [];
 
@@ -174,6 +178,7 @@ module.exports = {
 
     feeds: listFeed,
     getFeed: getFeed,
+    addFeedItem: addFeedItem,
 
     getProfile: getProfile,
 
