@@ -62,3 +62,4 @@ vagrant/.vagrant
 
 # Backend Node-modules
 backend/node_modules/
+node_modules/
