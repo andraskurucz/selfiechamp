@@ -1,4 +1,4 @@
-package com.poleposition.selfiechamp;
+package com.poleposition.selfiechamp.camera;
 
 import android.content.Context;
 import android.util.AttributeSet;

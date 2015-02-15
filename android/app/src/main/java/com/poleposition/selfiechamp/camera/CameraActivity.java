@@ -1,7 +1,9 @@
-package com.poleposition.selfiechamp;
+package com.poleposition.selfiechamp.camera;
 
 import android.app.Activity;
 import android.os.Bundle;
+
+import com.poleposition.selfiechamp.R;
 
 /**
  * Created by kuruczmester on 24/01/15.

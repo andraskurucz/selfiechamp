@@ -1,4 +1,4 @@
-package com.poleposition.selfiechamp;
+package com.poleposition.selfiechamp.ui;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -10,11 +10,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.poleposition.selfiechamp.R;
+import com.poleposition.selfiechamp.feed.FeedFragment;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class SlidingTabsFragment extends Fragment {
-
 
     static class SamplePagerItem {
         private final CharSequence mTitle;

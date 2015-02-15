@@ -1,9 +1,8 @@
-package com.poleposition.selfiechamp;
+package com.poleposition.selfiechamp.ui;
 
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.util.SparseArray;
@@ -17,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.poleposition.selfiechamp.R;
 
 public class SlidingTabLayout extends HorizontalScrollView {
 

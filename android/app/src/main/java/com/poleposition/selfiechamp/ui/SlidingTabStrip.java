@@ -1,4 +1,4 @@
-package com.poleposition.selfiechamp;
+package com.poleposition.selfiechamp.ui;
 
 import android.content.Context;
 import android.graphics.Canvas;
